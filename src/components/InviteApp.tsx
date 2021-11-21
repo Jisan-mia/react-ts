@@ -1,6 +1,8 @@
 import { useState } from "react"
 import PeopleList from './PeopleList'
-interface IInvitedPeopleState {
+import './InviteApp.css'
+import AddPeople from './AddPeople'
+export interface IInvitedPeopleState {
   invitedPeople: {
     name: string
     age: number
@@ -21,11 +23,13 @@ const InviteApp = () => {
   ])
 
   return (
-    <div>
-      
+    <>
+    <h1>Invite People App</h1>
+    <div className="invite-container">
+      <AddPeople invitedPeople={invitedPeople} setInvitedPeople={setInvitedPeople} />
       <PeopleList invitedPeople={invitedPeople} />
-      
     </div>
+    </>
   )
 }
 
