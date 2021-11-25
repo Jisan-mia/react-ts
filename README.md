@@ -18,7 +18,8 @@ npx create-react-app --template typescript react-typescript-app
 - Handling Events
 
 ### Project Overview
-Name: Dev Profile 
+Name: **Dev Profile**
+
 Features:
 - One can input developer info like name, title, description, img etc.
 - Save inputted data.
