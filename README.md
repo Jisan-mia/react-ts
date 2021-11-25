@@ -11,13 +11,17 @@
 npx create-react-app --template typescript react-typescript-app 
 ```
 
-### Handling State
-```reactjs
+### Todos
+- Handling State
+- Handling Props
+- Handling Functions
+- Handling Events
 
-```
-
-### Handling Props
-
-### Handling Functions
-
-### Handling Events
+### Project Overview
+Name: Dev Profile 
+Features:
+- One can input developer info like name, title, description, img etc.
+- Save inputted data.
+- Saved data will be shown on right side developer Info card.
+- on developer info card container there will be a demo card
+- Remove developer info card
