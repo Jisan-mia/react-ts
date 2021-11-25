@@ -1,10 +1,12 @@
 import './App.css';
-import InviteApp from './components/InviteApp'
+import DevProfile from './components/Dev Profile/DevProfile';
+import InviteApp from './components/Invite App/InviteApp';
 
 function App() {
   return (
     <div className="App">
-      <InviteApp />
+      {/* <InviteApp /> */}
+      <DevProfile />
     </div>
   );
 }
