@@ -11,7 +11,7 @@
 npx create-react-app --template typescript react-typescript-app 
 ```
 
-### Todos
+### Functionalities/Todos
 - Handling State
 - Handling Props
 - Handling Functions
