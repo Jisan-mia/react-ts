@@ -5,17 +5,14 @@
 	margin: 0;
 	box-sizing: border-box;
 }
-html {
+
+main {
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	height: 100vh;
-}
-main {
-	background-color: #12181b;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	height: 100%;
 	flex-wrap: wrap;
 	margin: 0 20px;
 }
@@ -140,7 +137,7 @@ textarea {
 	border-right: 1.5px royalblue solid;
 	/* width: 100%; */
 }
-.avater img {
+.avater img, .avater .demoImg {
 	margin-right: 30px;
 	width: 7.5rem;
 	height: 7.5rem;
@@ -148,6 +145,7 @@ textarea {
 	object-fit: cover;
 	border: 2px rgba(65, 105, 225, 0.849) solid;
 }
+
 .profileName-flexbox {
 	display: flex;
 	align-items: center;
