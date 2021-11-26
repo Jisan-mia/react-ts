@@ -4,6 +4,7 @@ import ProfileCard from './ProfileCard'
 import './DevProfile.css';
 
 export type devProfileType = {
+  id: number | string
   name: string
   title: string
   description: string
@@ -18,6 +19,7 @@ export interface IDevProfileState {
 
 const DevProfile = () => {
   const [devProfile, setDevProfile] = useState<IDevProfileState['devProfile']>([{
+    id: 1,
     name: 'Jisan',
     title: 'Frontend Developer',
     description: 'Enthusiastic and passionate Front-end Web Developer, who enjoys coding.',
@@ -30,7 +32,7 @@ const DevProfile = () => {
       <ProfileForm devProfile={devProfile} setDevProfile={setDevProfile} />
       <div className="dev-profiles">
       {
-        devProfile.map(profile => <ProfileCard profile={profile} setDevProfile={setDevProfile}/>)
+        devProfile.map(profile => <ProfileCard allProfile={devProfile} profile={profile} setDevProfile={setDevProfile}/>)
       }
       </div>
       

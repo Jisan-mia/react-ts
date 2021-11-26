@@ -11,7 +11,12 @@ const ProfileForm: React.FC<IProps> = ({devProfile, setDevProfile}) => {
 		title: '',
 		description: '',
 		url: '',
+		id: 0
 	})
+	
+	const randomId = () => {
+		return Math.floor(Math.random()*(999999-1111111+1)+1111111);
+	}
 	const handleAddProfile = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
 		const {name, title, description, url} = profileInputState
@@ -21,10 +26,14 @@ const ProfileForm: React.FC<IProps> = ({devProfile, setDevProfile}) => {
 		} 
 		setDevProfile([
 			...devProfile,
-			profileInputState
+			{
+				...profileInputState,
+				id: randomId()
+			}
 		])
 		
 		setProfileInputState({
+			id: '',
 			name: '',
 			title: '',
 			description: '',
