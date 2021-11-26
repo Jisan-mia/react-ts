@@ -18,7 +18,7 @@ const ProfileCard: React.FC<IProps> = ({allProfile, profile, setDevProfile}) => 
   }
 
   function checkURL(url: string):boolean {
-    return url.includes('https') || url.includes('image/jpeg')
+    return url.includes('https' || 'image' || 'png' || 'jpg') 
   }
 
   return (
