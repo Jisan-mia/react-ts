@@ -17,6 +17,10 @@ const ProfileCard: React.FC<IProps> = ({allProfile, profile, setDevProfile}) => 
     setDevProfile(remainingProfile)
   }
 
+  function checkURL(url: string):boolean {
+    return url.includes('https') || url.includes('image/jpeg')
+  }
+
   return (
     <>
      <section id="userProfile">
@@ -24,7 +28,7 @@ const ProfileCard: React.FC<IProps> = ({allProfile, profile, setDevProfile}) => 
           {profile.isDemo && <div className="demo-profile">Demo</div>}
           
           <div className="avater">
-            <img src={profile.url} alt="Profile Picture" />
+            <img src={checkURL(profile.url) ? profile.url : '/avater.svg'} alt="Profile Picture" />
           </div>
           <div className="info">
             {
