@@ -3,15 +3,18 @@ import ProfileForm from './ProfileForm';
 import ProfileCard from './ProfileCard'
 import './DevProfile.css';
 
-export interface IDevProfileState {
-  devProfile: {
-    name: string
-    title: string
-    description: string
-    url: string
-    isDemo?: boolean
-  }[]
+export type devProfileType = {
+  name: string
+  title: string
+  description: string
+  url: string
+  isDemo?: boolean
 }
+export interface IDevProfileState {
+  devProfile: devProfileType[]
+}
+
+
 
 const DevProfile = () => {
   const [devProfile, setDevProfile] = useState<IDevProfileState['devProfile']>([{
@@ -24,10 +27,13 @@ const DevProfile = () => {
 
   return (
     <main>
-      <ProfileForm />
+      <ProfileForm devProfile={devProfile} setDevProfile={setDevProfile} />
+      <div className="dev-profiles">
       {
-        devProfile.map(profile => <ProfileCard />)
+        devProfile.map(profile => <ProfileCard profile={profile} setDevProfile={setDevProfile}/>)
       }
+      </div>
+      
     </main>
   )
 }

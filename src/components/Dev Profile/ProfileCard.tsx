@@ -1,20 +1,27 @@
 import React from 'react'
+import {IDevProfileState, devProfileType} from './DevProfile'
 
-const ProfileCard = () => {
+
+
+interface IProps {
+  profile: devProfileType
+  setDevProfile: React.Dispatch<React.SetStateAction<IDevProfileState['devProfile']>>
+}
+
+const ProfileCard: React.FC<IProps> = ({profile, setDevProfile}) => {
   return (
     <>
      <section id="userProfile">
         <div className="profile-info demo">
           <div className="demo-profile">Demo</div>
           <div className="avater">
-            <div className="demoImg"></div>
+            <img src={profile.url} alt="" />
           </div>
           <div className="info">
-            <h2 id="profileName">Jisan</h2>
-            <h3 id="profileTitle">Frontend Developer</h3>
+            <h2 id="profileName">{profile.name}</h2>
+            <h3 id="profileTitle">{profile.title}</h3>
             <p id="profileDescription">
-              Enthusiastic and passionate Front-end Web Developer, who enjoys
-              coding.
+             {profile.description}
             </p>
           </div>
         </div>
