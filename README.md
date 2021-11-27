@@ -27,6 +27,7 @@ Features:
 - on developer info card container there will be a demo card
 - Remove developer info card
 - finally edit a developer info
+- show update button instead of add profile when editing profile
 
 Image overview:
 ![localhost_3000_ (15)](https://user-images.githubusercontent.com/61211600/143721406-6989e1c7-5229-4501-b363-9709d890347e.png)
