@@ -159,6 +159,7 @@ textarea {
 }
 .edit-delete-icon {
 	display: flex;
+	gap: 0.5rem;
 }
 .edit-delete-icon .action-icon{
 	cursor: pointer;

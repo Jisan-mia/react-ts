@@ -1,24 +1,27 @@
 import React from 'react'
 import {IDevProfileState, devProfileType} from './DevProfile';
 import {BsPersonX} from 'react-icons/bs'
-
+import {FaUserEdit} from 'react-icons/fa'
 
 
 interface IProps {
   allProfile: IDevProfileState['devProfile']
   profile: devProfileType
   setDevProfile: React.Dispatch<React.SetStateAction<IDevProfileState['devProfile']>>
+  handleEditProfile: (profile: devProfileType) => void
 }
 
-const ProfileCard: React.FC<IProps> = ({allProfile, profile, setDevProfile}) => {
+const ProfileCard: React.FC<IProps> = ({allProfile, profile, setDevProfile, handleEditProfile}) => {
 
   const handleDeleteProfile = (id: number | string) => {
     const remainingProfile = allProfile.filter(profile => profile.id !== id);
     setDevProfile(remainingProfile)
   }
 
+ 
+
   function checkURL(url: string):boolean {
-    return url.includes('https' || 'image' || 'png' || 'jpg') 
+    return url.includes('https' || 'image' || 'png' || 'jpg' || 'svg') 
   }
 
   return (
@@ -43,6 +46,13 @@ const ProfileCard: React.FC<IProps> = ({allProfile, profile, setDevProfile}) => 
                         className="action-icon"
                         onClick={() => handleDeleteProfile(profile.id)}
                       />
+                      <FaUserEdit 
+                        size={24} 
+                        fill={'rgba(0, 0, 0, 0.8)'}
+                        className="action-icon"
+                        onClick={() => handleEditProfile(profile)}
+                      />
+                      
                   </div>
                 </div>
               )

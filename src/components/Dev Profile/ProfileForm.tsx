@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {devProfileType} from './DevProfile'
 interface IProps {
 	devProfile: devProfileType[]
 	setDevProfile: React.Dispatch<React.SetStateAction<devProfileType[]>>
+	editingProfile: devProfileType
+	isEdit: number
+	setIsEdit: React.Dispatch<React.SetStateAction<number>>
 }
 
-const ProfileForm: React.FC<IProps> = ({devProfile, setDevProfile}) => {
+const ProfileForm: React.FC<IProps> = 
+(
+	{
+		devProfile,
+		setDevProfile,
+		editingProfile,
+		isEdit,
+		setIsEdit
+	}
+) => {
 	const [profileInputState, setProfileInputState] = useState<devProfileType>({
 		name: '',
 		title: '',
@@ -13,10 +25,28 @@ const ProfileForm: React.FC<IProps> = ({devProfile, setDevProfile}) => {
 		url: '',
 		id: 0
 	})
+
+	useEffect(() => {
+		if(isEdit) {
+			setProfileInputState({...editingProfile})
+		}
+		
+	}, [isEdit])
 	
 	const randomId = () => {
 		return Math.floor(Math.random()*(999999-1111111+1)+1111111);
 	}
+
+	const clearForm = () => {
+		setProfileInputState({
+			id: '',
+			name: '',
+			title: '',
+			description: '',
+			url: '',
+		})
+	}
+
 	const handleAddProfile = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
 		const {name, title, description, url} = profileInputState
@@ -24,6 +54,14 @@ const ProfileForm: React.FC<IProps> = ({devProfile, setDevProfile}) => {
 			alert('Please fill the form first')
 			return
 		} 
+		if(isEdit) {
+			const replace = devProfile.splice(isEdit, 1, {...profileInputState, id: editingProfile.id })
+			console.log(replace, devProfile)
+			setDevProfile(devProfile)
+			clearForm();
+			setIsEdit(0);
+			return;
+		}
 		setDevProfile([
 			...devProfile,
 			{
@@ -32,15 +70,11 @@ const ProfileForm: React.FC<IProps> = ({devProfile, setDevProfile}) => {
 			}
 		])
 		
-		setProfileInputState({
-			id: '',
-			name: '',
-			title: '',
-			description: '',
-			url: '',
-		})
+		clearForm()
 
 	}
+
+
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ): void => {
 		const {name, value} = e.target;
@@ -97,7 +131,7 @@ const ProfileForm: React.FC<IProps> = ({devProfile, setDevProfile}) => {
 			<input 
 				type="submit" 
 				className="btn" 
-				value="Add Profile" 
+				value={isEdit ? 'Update' : 'Add Profile'} 
 			/>
 		</form> 
     </>
