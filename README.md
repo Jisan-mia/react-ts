@@ -28,5 +28,6 @@ Features:
 - Remove developer info card
 
 Image overview:
-![localhost_3000_ (14)](https://user-images.githubusercontent.com/61211600/143622606-6c7bf491-d6fe-4240-9d3c-4abbac04cde6.png)
+![localhost_3000_ (15)](https://user-images.githubusercontent.com/61211600/143721406-6989e1c7-5229-4501-b363-9709d890347e.png)
+
 
